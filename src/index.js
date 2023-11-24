@@ -92,5 +92,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			add_react_dialog(attr.detail);
 		}
 	});
+
+	// on each element with the class "react-dialog".
+	let dialog_links = document.getElementsByClassName('react-dialog');
+	for( let i=0;i<dialog_links.length;i++ ) {
+		dialog_links[i].onclick = function(e) {
+			e.preventDefault();
+			document.body.dispatchEvent(new CustomEvent("react-dialog", { detail: JSON.parse(this.dataset.dialog) }));
+		};
+	}
 })
 
