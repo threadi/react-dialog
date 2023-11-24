@@ -59,7 +59,7 @@ $dialog = array(
 		),
 	)
 );
-echo '<a href="#" class="wp-easy-dialog" data-dialog="'.esc_attr(wp_json_encode($dialog)).'">Some link</a>';
+echo '<a href="#" class="react-dialog" data-dialog="'.esc_attr(wp_json_encode($dialog)).'">Some link</a>';
 ```
 
 ### JavaScript
@@ -78,7 +78,7 @@ let dialog = array(
 		),
 	)
 );
-document.body.dispatchEvent(new CustomEvent("wp-easy-dialog", config));
+document.body.dispatchEvent(new CustomEvent("react-dialog", config));
 ```
 ## Custom styles
 
@@ -87,7 +87,7 @@ You can customize the output of the dialog with your custom css.
 E.g.:
 
 ```
-body.wp-easy-dialog-on-body.wp-core-ui .components-modal__frame.wp-easy-dialog {
+body.react-dialog-on-body.wp-core-ui .components-modal__frame.react-dialog {
  background-color: red;
 }
 ```

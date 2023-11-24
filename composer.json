@@ -1,6 +1,6 @@
 {
   "name": "threadi/react-dialog",
-  "description": "Provides a simple react-driven dialog-modal.",
+  "description": "Provides a simple react-driven dialog-modal for WordPress-frontend.",
   "type": "library",
   "license": "GPL-3.0-or-later",
   "authors": [

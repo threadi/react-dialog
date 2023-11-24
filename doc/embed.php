@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Add React Easy scripts in frontend.
+ * Add React Dialog scripts in frontend.
  */
 add_action( 'wp_enqueue_scripts', 'custom_dialog_embed' );
 function custom_dialog_embed(): void {
@@ -18,7 +18,7 @@ function custom_dialog_embed(): void {
     $script_asset_path = $path . 'build/index.asset.php';
     $script_asset      = require( $script_asset_path );
     wp_enqueue_script(
-        'wp-easy-dialog',
+        'react-dialog',
         $url . 'build/index.js',
         $script_asset['dependencies'],
         $script_asset['version'],
@@ -29,7 +29,7 @@ function custom_dialog_embed(): void {
     $admin_css      = $url . 'build/style-index.css';
     $admin_css_path = $path . 'build/style-index.css';
     wp_enqueue_style(
-        'wp-easy-dialog',
+        'react-dialog',
         $admin_css,
         array( 'wp-components' ),
         filemtime( $admin_css_path )
