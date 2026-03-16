@@ -59,7 +59,7 @@ $dialog = array(
 		),
 	)
 );
-echo '<a href="#" class="react-dialog" data-dialog="'.esc_attr(wp_json_encode($dialog)).'">Some link</a>';
+echo '<a href="#" class="react-dialog-for-wordpress" data-dialog="'.esc_attr(wp_json_encode($dialog)).'">Some link</a>';
 ```
 
 ### JavaScript
@@ -78,7 +78,7 @@ let dialog = array(
 		),
 	)
 );
-document.body.dispatchEvent(new CustomEvent("react-dialog", config));
+document.body.dispatchEvent(new CustomEvent("react-dialog-for-wordpress", config));
 ```
 ## Custom styles
 
