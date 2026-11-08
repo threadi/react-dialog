@@ -30,7 +30,7 @@ class Modal extends React.Component {
          * Define the close action.
          */
         const closeDialog = () => {
-            top.document.getElementById('react-dialog-for-wordpress-root').remove();
+            rdRootDocument().getElementById('react-dialog-for-wordpress-root').remove();
         };
 
         /**
@@ -92,13 +92,14 @@ class Modal extends React.Component {
  */
 function add_react_dialog( dialog ) {
     if( dialog ) {
-        if( ! top.document.getElementById('react-dialog-for-wordpress-root') ) {
-            let root = top.document.createElement('div');
+        const rootDocument = rdRootDocument();
+        if( ! rootDocument.getElementById('react-dialog-for-wordpress-root') ) {
+            let root = rootDocument.createElement('div');
             root.id = 'react-dialog-for-wordpress-root';
-            top.document.body.append(root);
+            rootDocument.body.append(root);
         }
         // we use ReactDom.render as Divi comes with React 16 and not React 18.
-        ReactDOM.render(<Modal dialog={dialog}/>, top.document.getElementById('react-dialog-for-wordpress-root'));
+        ReactDOM.render(<Modal dialog={dialog}/>, rootDocument.getElementById('react-dialog-for-wordpress-root'));
     }
 }
 
@@ -111,6 +112,20 @@ function react_dialog_init() {
             document.body.dispatchEvent(new CustomEvent("react-dialog-for-wordpress", { detail: JSON.parse(this.dataset.dialog) }));
         };
     }
+}
+
+/**
+ * Return the root document object.
+ * @returns {Document}
+ */
+function rdRootDocument() {
+    let w = window;
+    try {
+        while ( w !== w.parent && w.parent.document ) {
+            w = w.parent;
+        }
+    } catch ( x ) {}
+    return w.document;
 }
 
 /**
